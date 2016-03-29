@@ -8,7 +8,7 @@
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
-    <bean id="logging" class="madvirus.spring.chap01.LoggingAspect" />
+    <bean id="logging" class="madvirus.spring.chap01.depinjection.LoggingAspect"/>
     
     <aop:config>
         <aop:pointcut id="servicePointcut"

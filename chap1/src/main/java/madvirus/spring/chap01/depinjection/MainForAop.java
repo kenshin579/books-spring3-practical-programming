@@ -1,4 +1,4 @@
-package madvirus.spring.chap01;
+package madvirus.spring.chap01.depinjection;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

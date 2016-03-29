@@ -1,4 +1,4 @@
-package madvirus.spring.chap01;
+package madvirus.spring.chap01.others;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;

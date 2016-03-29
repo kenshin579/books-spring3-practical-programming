@@ -6,13 +6,13 @@
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 	<bean name="writeArticleService"
-		class="madvirus.spring.chap01.WriteArticleServiceImpl">
+		  class="madvirus.spring.chap01.depinjection.WriteArticleServiceImpl">
 		<constructor-arg>
 			<ref bean="articleDao" />
 		</constructor-arg>
 	</bean>
 
-	<bean name="articleDao" class="madvirus.spring.chap01.MySQLArticleDao">
+	<bean name="articleDao" class="madvirus.spring.chap01.depinjection.MySQLArticleDao">
 	</bean>
 
 </beans>
