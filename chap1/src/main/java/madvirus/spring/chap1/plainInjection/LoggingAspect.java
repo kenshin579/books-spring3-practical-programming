@@ -1,4 +1,4 @@
-package madvirus.spring.chap01.plainInjection;
+package madvirus.spring.chap1.plainInjection;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

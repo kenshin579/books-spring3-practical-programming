@@ -1,4 +1,4 @@
-package madvirus.spring.chap01.plainInjection;
+package madvirus.spring.chap1.plainInjection;
 
 public class MySQLArticleDao implements ArticleDao {
 

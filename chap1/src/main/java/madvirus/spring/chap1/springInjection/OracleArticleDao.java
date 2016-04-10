@@ -1,4 +1,4 @@
-package madvirus.spring.chap01.plainInjection;
+package madvirus.spring.chap1.springInjection;
 
 /**
  * Created by ykoh on 2016. 3. 28..

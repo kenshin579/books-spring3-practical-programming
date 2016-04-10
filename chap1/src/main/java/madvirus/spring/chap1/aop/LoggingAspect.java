@@ -1,4 +1,4 @@
-package madvirus.spring.chap01.aop;
+package madvirus.spring.chap1.aop;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

@@ -1,7 +1,7 @@
-package madvirus.spring.chap01.aop;
+package madvirus.spring.chap1.aop;
 
-import madvirus.spring.chap01.springInjection.Article;
-import madvirus.spring.chap01.springInjection.WriteArticleService;
+import madvirus.spring.chap1.springInjection.Article;
+import madvirus.spring.chap1.springInjection.WriteArticleService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

@@ -6,7 +6,7 @@
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     <bean name="writeArticleService"
-          class="madvirus.spring.chap01.springInjection.WriteArticleServiceImpl">
+          class="madvirus.spring.chap1.springInjection.WriteArticleServiceImpl">
 
         <!--
         constructor-arg 태그는 writeArticleService 빈 객체를 생성할 때 생성자에 전달할
@@ -17,7 +17,7 @@
         </constructor-arg>
     </bean>
 
-    <bean name="articleDao" class="madvirus.spring.chap01.springInjection.MySQLArticleDao">
+    <bean name="articleDao" class="madvirus.spring.chap1.springInjection.MySQLArticleDao">
     </bean>
 
 </beans>

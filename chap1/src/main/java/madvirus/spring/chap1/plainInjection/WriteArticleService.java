@@ -1,4 +1,4 @@
-package madvirus.spring.chap01.springInjection;
+package madvirus.spring.chap1.plainInjection;
 
 public interface WriteArticleService {
 
