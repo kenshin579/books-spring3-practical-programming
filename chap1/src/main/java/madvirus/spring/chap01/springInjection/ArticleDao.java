@@ -1,4 +1,4 @@
-package madvirus.spring.chap01.depinjection;
+package madvirus.spring.chap01.springInjection;
 
 public interface ArticleDao {
 

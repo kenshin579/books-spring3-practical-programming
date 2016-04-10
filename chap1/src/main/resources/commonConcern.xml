@@ -8,8 +8,12 @@
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
-    <bean id="logging" class="madvirus.spring.chap01.depinjection.LoggingAspect"/>
-    
+    <bean id="logging" class="madvirus.spring.chap01.aop.LoggingAspect"/>
+
+    <!--
+    Aspect 클래스를 작성했다면 Aspect를 어떤 클래스의 어떤 메서드에 적용할지를 설정해야 함
+    - LoggingApspect가 WriteArticleServiceImpl 클래스에 적용되도록 설정함
+    -->
     <aop:config>
         <aop:pointcut id="servicePointcut"
             expression="execution(* *..*Service.*(..))" />

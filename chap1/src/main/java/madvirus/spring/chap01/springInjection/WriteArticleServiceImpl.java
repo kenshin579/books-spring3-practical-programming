@@ -1,4 +1,4 @@
-package madvirus.spring.chap01.depinjection;
+package madvirus.spring.chap01.springInjection;
 
 public class WriteArticleServiceImpl implements WriteArticleService {
 
@@ -10,7 +10,7 @@ public class WriteArticleServiceImpl implements WriteArticleService {
     }
 
     public void write(Article article) {
-        System.out.println("WriteArticleServiceImpl.write() �޼��� ����");
+        System.out.println("WriteArticleServiceImpl.write() 메서드 실행");
         articleDao.insert(article);
     }
 

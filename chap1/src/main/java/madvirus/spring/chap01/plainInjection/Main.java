@@ -1,4 +1,4 @@
-package madvirus.spring.chap01.depinjection;
+package madvirus.spring.chap01.plainInjection;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean name="writeArticleService"
+          class="madvirus.spring.chap01.springInjection.WriteArticleServiceImpl">
+
+        <!--
+        constructor-arg 태그는 writeArticleService 빈 객체를 생성할 때 생성자에 전달할
+        파라미터를 명시하기 위해 사용함
+         -->
+        <constructor-arg>
+            <ref bean="articleDao"/>
+        </constructor-arg>
+    </bean>
+
+    <bean name="articleDao" class="madvirus.spring.chap01.springInjection.MySQLArticleDao">
+    </bean>
+
+</beans>

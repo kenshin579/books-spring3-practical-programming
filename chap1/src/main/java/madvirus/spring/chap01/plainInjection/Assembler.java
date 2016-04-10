@@ -1,7 +1,10 @@
-package madvirus.spring.chap01.others;
+package madvirus.spring.chap01.plainInjection;
 
 /**
- * Created by ykoh on 2016. 3. 28..
+ * 역할
+ * - MySQLArticleDao 객체를 생성함
+ * - WriteArticleServiceImpl 객체에 전달(setter로)해주는 역할을 한다
+ *
  */
 public class Assembler {
     public WriteArticleService getWriteArticleService() {
