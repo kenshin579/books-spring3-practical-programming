@@ -8,23 +8,34 @@
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
-    <bean id="monitor" class="madvirus.spring.chap02.SystemMonitor"
-          p:periodTime="10" p:sender-ref="smsSender"/>
 
-    <bean id="smsSender" class="madvirus.spring.chap02.SmsSender"/>
-
+    <!-- 2) 프로퍼티 설정 방식 (setXXXX 형태의 설정 메서드가 있어야 함 -->
     <bean name="writeArticleService" class="madvirus.spring.chap02.WriteArticleServiceImpl">
         <property name="articleDao">
             <ref bean="mysqlArticleDao"/>
         </property>
     </bean>
 
+    <!-- 3) XML 네임스페이스를 이용한 프로퍼티 설정 -->
+    <bean id="monitor" class="madvirus.spring.chap02.SystemMonitor"
+          p:periodTime="10" p:sender-ref="smsSender"/>
+
+    <bean id="smsSender" class="madvirus.spring.chap02.SmsSender"/>
+
+    <bean name="lockingFailManager" class="madvirus.spring.chap02.PessimisticLockingFailManager">
+        <property name="retryCount">
+            <!-- 인자가 기본 데이터 타입인 경우에는 value tag사용 -->
+            <value>3</value>
+        </property>
+
+    </bean>
     <bean name="mysqlArticleDao" class="madvirus.spring.chap02.MysqlArticleDao"/>
 
+    <!-- 4) 룩업 메서드 인젝션 방식 -->
     <bean id="processor" class="madvirus.spring.chap02.Processor">
         <lookup-method name="getCommandFactory" bean="commandFactory"/>
     </bean>
-
+    <!-- commandFactory는 CommandFactoryImpl 구현체를 사용하겠다라는 의미인듯함 -->
     <bean id="commandFactory" class="madvirus.spring.chap02.CommandFactoryImpl"/>
 
     <bean id="workerBean" class="madvirus.spring.chap02.Worker" scope="prototype">
@@ -37,4 +48,17 @@
 
     <bean name="customBeanFactoryPostProcessor" class="madvirus.spring.chap02.CustomBeanFactoryPostProcessor"/>
     <bean name="customBeanPostProcessor" class="madvirus.spring.chap02.CustomBeanPostProcessor"/>
+
+    <bean name="handler" class="madvirus.spring.chap02.ProtocolHandler">
+        <property name="filters">
+            <list>
+                <ref bean="encryptionFilter"/>
+                <ref bean="zipFilter"/>
+                <bean class="madvirus.spring.chap02.HeaderFilter"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean name="zipFilter" class="madvirus.spring.chap02.ZipFilter"/>
+    <bean name="encryptionFilter" class="madvirus.spring.chap02.EncryptionFilter"/>
 </beans>

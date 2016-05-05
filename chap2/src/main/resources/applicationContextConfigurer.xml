@@ -8,6 +8,7 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
+    <!-- 1. property 태그 외부 설정 프로터피 -->
     <!--
     <bean
         class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -17,6 +18,7 @@
     </bean>
     -->
 
+    <!-- 2. Property-placeholder 태그를 사용한 외부 설정 프로퍼티 사용 -->
     <context:property-placeholder location="classpath:config/jdbc.properties"/>
 
     <bean id="dataSourceFactory" class="madvirus.spring.chap02.DataSourceFactory">

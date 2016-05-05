@@ -11,17 +11,13 @@ public class MainHierachy {
 
         String[] childConfigLocations = new String[]{"child.xml"};
         AbstractApplicationContext childContext = new ClassPathXmlApplicationContext(
-                childConfigLocations, parentContext);
+                childConfigLocations, parentContext); //부모 컨테이너 지정
 
-        SmsSender parentSender = parentContext.getBean("smsSender",
-                SmsSender.class);
-        SmsSender childSender = childContext.getBean("smsSender",
-                SmsSender.class);
+        SmsSender parentSender = parentContext.getBean("smsSender", SmsSender.class);
+        SmsSender childSender = childContext.getBean("smsSender", SmsSender.class);
 
-        System.out.println("parentSender == childSender : "
-                + (parentSender == childSender));
-        SystemMonitor monitor = childContext.getBean("monitor",
-                SystemMonitor.class);
+        System.out.println("parentSender == childSender : " + (parentSender == childSender));
+        SystemMonitor monitor = childContext.getBean("monitor", SystemMonitor.class);
         System.out.println(monitor);
     }
 

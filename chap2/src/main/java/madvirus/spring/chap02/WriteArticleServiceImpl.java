@@ -8,9 +8,8 @@ public class WriteArticleServiceImpl implements WriteArticleService {
         this.articleDao = articleDao;
     }
 
-    @Override
     public void write(Article article) {
-        System.out.println("WriteArticleServiceImpl.write() �޼��� ����");
+        System.out.println("WriteArticleServiceImpl.write() 실행");
         articleDao.insert(article);
     }
 

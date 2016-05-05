@@ -17,42 +17,34 @@ public class AllILifeCycleInterfacesImpl implements BeanNameAware,
         System.out.println("AllILifeCycleInterfacesImpl.������()");
     }
 
-    @Override
     public void setBeanName(String arg0) {
         System.out.println("AllILifeCycleInterfacesImpl.setBeanName()");
     }
 
-    @Override
     public void setBeanFactory(BeanFactory arg0) throws BeansException {
         System.out.println("AllILifeCycleInterfacesImpl.setBeanFactory()");
     }
 
-    @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println("AllILifeCycleInterfacesImpl.afterPropertiesSet()");
     }
 
-    @Override
     public void destroy() throws Exception {
         System.out.println("AllILifeCycleInterfacesImpl.destroy()");
     }
 
-    @Override
     public void setResourceLoader(ResourceLoader arg0) {
         System.out.println("AllILifeCycleInterfacesImpl.setResourceLoader()");
     }
 
-    @Override
     public void setApplicationEventPublisher(ApplicationEventPublisher arg0) {
         System.out.println("AllILifeCycleInterfacesImpl.setApplicationEventPublisher()");
     }
 
-    @Override
     public void setMessageSource(MessageSource arg0) {
         System.out.println("AllILifeCycleInterfacesImpl.setMessageSource()");
     }
 
-    @Override
     public void setApplicationContext(ApplicationContext arg0)
             throws BeansException {
         System.out.println("AllILifeCycleInterfacesImpl.setApplicationContext()");

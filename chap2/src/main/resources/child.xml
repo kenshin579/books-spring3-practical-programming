@@ -5,11 +5,16 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
+    <!-- parent.xml -->
+    <bean id="smsSender" class="madvirus.spring.chap02.SmsSender"/>
+
+    <!-- child.xml -->
     <bean id="monitor" class="madvirus.spring.chap02.SystemMonitor">
         <property name="periodTime" value="10"/>
         <property name="sender">
             <ref bean="smsSender"/>
         </property>
     </bean>
+
 
 </beans>

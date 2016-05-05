@@ -5,7 +5,6 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 
 public class CustomBeanPostProcessor implements BeanPostProcessor {
 
-    @Override
     public Object postProcessAfterInitialization(Object bean, String beanName)
             throws BeansException {
         System.out
@@ -14,7 +13,6 @@ public class CustomBeanPostProcessor implements BeanPostProcessor {
         return bean;
     }
 
-    @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName)
             throws BeansException {
         System.out
