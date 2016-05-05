@@ -8,7 +8,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>chap1</artifactId>
     <packaging>war</packaging>
-    <name>chap1 Maven Webapp</name>
+    <name>chap1</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
