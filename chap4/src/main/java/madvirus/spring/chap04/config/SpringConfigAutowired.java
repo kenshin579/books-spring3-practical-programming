@@ -1,6 +1,7 @@
 package madvirus.spring.chap04.config;
 
 import madvirus.spring.chap04.homecontrol.*;
+import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,18 +32,18 @@ public class SpringConfigAutowired {
     @Bean
     @Qualifier("intrusionDetection")
     public InfraredRaySensor windowSensor() {
-        return new InfraredRaySensor("â ����");
+        return new InfraredRaySensor("창 센서");
     }
 
     @Bean
     @Qualifier("intrusionDetection")
     public InfraredRaySensor doorSensor() {
-        return new InfraredRaySensor("�� ����");
+        return new InfraredRaySensor("현관 센서");
     }
 
     @Bean
     public InfraredRaySensor lampSensor() {
-        return new InfraredRaySensor("�� ����");
+        return new InfraredRaySensor("전등 센서");
     }
 
     @Bean
@@ -55,7 +56,7 @@ public class SpringConfigAutowired {
         return new MonitorViewer();
     }
 
-    @Bean
+    @Bean(autowire = Autowire.BY_NAME)
     public HomeController homeController() {
         return new HomeController();
     }

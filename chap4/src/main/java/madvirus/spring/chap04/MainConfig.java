@@ -12,6 +12,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MainConfig {
 
+    /*
+    @Configuration 어노테이이 적용된 클래스(ex.SpringConfig.java)를 이용해서 스프링 빈을 생성하는 방법 (2가지)
+    1. AnnotationConfigApplicationContext를 이용하는 방법
+    2. XML 설정에서 ConfigurationClassPostProcessor를 이용하는 방법
+     */
     public static void main(String[] args) {
         ApplicationContext context = makeContextByXml();
         run(context);

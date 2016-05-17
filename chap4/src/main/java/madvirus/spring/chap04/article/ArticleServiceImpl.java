@@ -14,7 +14,6 @@ public class ArticleServiceImpl implements ArticleService {
         this.repository = repository;
     }
 
-    @Override
     public void writeArticle(String title, String content) {
         System.out.println("ArticleServiceImpl.writeArticle()");
         repository.save(new Article(title, content));

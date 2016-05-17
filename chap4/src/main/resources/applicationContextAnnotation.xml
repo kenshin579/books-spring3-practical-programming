@@ -13,18 +13,24 @@
         <context:include-filter type="regex" expression="kame\.spring\.chap04\.homecontrol\.*"/>
     </context:component-scan>
 
-    <!--	<context:annotation-config />-->
+    <!-- 아래 태그는 어노테이션과 관련해서 다음의 BeanPostProcessor를 함께 등록해준다 -->
+    <!-- 어노테이션를 적용하는 2가지 방법
+     1. 아래 한줄 사용-->
+    <context:annotation-config/>
 
-    <bean
-            class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
-
-    <bean
-            class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
-
-    <bean
-            class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
+    <!--
+    2. 아래 처럼 직접 클래스 명시해주는 방법
+    @Required 어노테이션 처리
+    아래 클래스의 역할은 스프링 컨테이너에 등록된 빈 객체를 조사하여 @Required 어노테이션이 적용된 프로퍼티의 값이 설정되어 있는지의 여부를 검사한다 -->
+    <!--<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>-->
+    <!-- @Autowired 어노테이션 처리 -->
+    <!--<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>-->
+    <!-- @Resource, @PostConstruct, @PreDestory 어노테이션 처리 -->
+    <!--<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
 
     <bean id="camera1" class="madvirus.spring.chap04.homecontrol.Camera">
+        <!-- number 프로퍼티에 @Required 어노테이션 적용
+        따라서, number 프로퍼티를 설정하지 않을 경우 예외 발생 -->
         <property name="number" value="1"/>
     </bean>
     <bean id="camera2" class="madvirus.spring.chap04.homecontrol.Camera" p:number="2"/>
@@ -55,6 +61,6 @@
 
     <!--	<bean id="viewer" class="madvirus.spring.chap04.homecontrol.MonitorViewer" />-->
 
-    <!--	<bean id="homeController" class="madvirus.spring.chap04.homecontrol.HomeController"-->
-    <!--		init-method="init" />-->
+    <!--<bean id="homeController" class="madvirus.spring.chap04.homecontrol.HomeController"-->
+    <!--init-method="init"/>-->
 </beans>

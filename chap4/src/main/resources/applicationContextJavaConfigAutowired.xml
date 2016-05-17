@@ -29,9 +29,8 @@
 
 
     <!--
-        아래 코드만 사용해도 동일하게 동작
+        아래 코드만 사용해도 동일하게 동작 -->
 
-        <context:component-scan base-package="madvirus.spring.chap04.config">
-    -->
+    <!--<context:component-scan base-package="madvirus.spring.chap04.config" />-->
 
 </beans>

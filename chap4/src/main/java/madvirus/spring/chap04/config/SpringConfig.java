@@ -37,20 +37,26 @@ public class SpringConfig {
 
     @Bean
     public InfraredRaySensor windowSensor() {
-        return new InfraredRaySensor("â ����");
+        return new InfraredRaySensor("창 센서");
     }
 
     @Bean
     public InfraredRaySensor doorSensor() {
-        return new InfraredRaySensor("�� ����");
+        return new InfraredRaySensor("현관 센서");
     }
 
     @Bean
     public InfraredRaySensor lampSensor() {
-        return new InfraredRaySensor("�� ����");
+        return new InfraredRaySensor("전등 센서");
     }
 
+    /*
+    @Bean 어노테이션은 새로운 빈 객체를 제공할 때 사용되며 @Bean이 적용된 메서드의 이름을 빈의 식별값으로 사용한다.
+    - XML 설정과 동일한 빈을 정의한다.
+    <bean id="alarmDevice" class="madvirus.spring.chap04.homecontrol.SmsAlarmDevice"/>
+     */
     @Bean
+//    @Bean(name = "smsAlarmDevice")
     public AlarmDevice alarmDevice() {
         return new SmsAlarmDevice();
     }
@@ -98,6 +104,9 @@ public class SpringConfig {
         return executor;
     }
 
+    /*
+    todo: proxyMode 잘 이해 안됨
+     */
     @Bean
     @Scope(value = "prototype", proxyMode = ScopedProxyMode.TARGET_CLASS)
     public Worker worker() {
