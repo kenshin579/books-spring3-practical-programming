@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+    <bean id="loggingAdvice" class="madvirus.spring.chap05.aop.pojo.LoggingAdvice"/>
+    <bean id="cacheAdvice" class="madvirus.spring.chap05.aop.pojo.ArticleCacheAdvice"/>
+    <bean id="traceAdvice" class="madvirus.spring.chap05.aop.pojo.UpdateMemberInfoTraceAdvice"/>
+
+    <aop:config>
+        <aop:aspect id="loggingAspect" ref="loggingAdvice" order="3">
+            <aop:pointcut id="publicMethod"
+                          expression="execution(public * madvirus.spring.chap05..*(..))"/>
+            <aop:before method="before" pointcut-ref="publicMethod"/>
+            <aop:after-returning method="afterReturning" pointcut-ref="publicMethod" returning="ret"/>
+            <aop:after-throwing method="afterThrowing" pointcut-ref="publicMethod" throwing="ex"/>
+            <aop:after method="afterFinally" pointcut-ref="publicMethod"/>
+        </aop:aspect>
+
+        <aop:aspect id="cacheAspect" ref="cacheAdvice" order="2">
+            <aop:around
+                    pointcut="execution(public * *..ReadArticleServiceImpl.*(..))"
+                    method="cache"/>
+        </aop:aspect>
+
+        <aop:aspect id="traceAspect" ref="traceAdvice" order="1">
+            <aop:after-returning
+                    pointcut="args(memberId,info)"
+                    method="traceReturn"
+                    returning="result"
+                    arg-names="joinPoint,result,memberId,info"/>
+        </aop:aspect>
+    </aop:config>
+
+    <bean id="readArticleService" class="madvirus.spring.chap05.board.service.ReadArticleServiceImpl"/>
+
+    <bean id="memberService" class="madvirus.spring.chap05.member.service.MemberServiceImpl"/>
+</beans>

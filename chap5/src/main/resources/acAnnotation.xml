@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+    <aop:aspectj-autoproxy/>
+    <bean id="traceAspect" class="madvirus.spring.chap05.aop.annot.UpdateMemberInfoTraceAspect"/>
+    <bean id="cacheAspect" class="madvirus.spring.chap05.aop.annot.ArticleCacheAspect"/>
+    <bean id="loggingAspect" class="madvirus.spring.chap05.aop.annot.LoggingAspect"/>
+
+    <bean id="readArticleService" class="madvirus.spring.chap05.board.service.ReadArticleServiceImpl"/>
+
+    <bean id="memberService" class="madvirus.spring.chap05.member.service.MemberServiceImpl"/>
+</beans>
