@@ -9,12 +9,10 @@ public class ProfileFilter implements Filter {
 
     private CommonLogger commonLogger;
 
-    @Override
     public void destroy() {
-        commonLogger.log("ProfileFilter.destroy() ȣ���");
+        commonLogger.log("ProfileFilter.destroy() destroy");
     }
 
-    @Override
     public void doFilter(ServletRequest request, ServletResponse response,
                          FilterChain filterChain) throws IOException, ServletException {
         long start = System.currentTimeMillis();
@@ -22,13 +20,12 @@ public class ProfileFilter implements Filter {
             filterChain.doFilter(request, response);
         } finally {
             long finish = System.currentTimeMillis();
-            commonLogger.log("���� �ð� : " + (finish - start));
+            commonLogger.log("doFilter : " + (finish - start));
         }
     }
 
-    @Override
     public void init(FilterConfig arg0) throws ServletException {
-        commonLogger.log("ProfileFilter.init() ȣ���");
+        commonLogger.log("ProfileFilter.init() init");
     }
 
     public void setCommonLogger(CommonLogger commonLogger) {
