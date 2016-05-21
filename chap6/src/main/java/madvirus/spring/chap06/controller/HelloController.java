@@ -12,6 +12,10 @@ public class HelloController {
     @RequestMapping("/hello.do")
     public ModelAndView hello() {
         ModelAndView mav = new ModelAndView();
+        /*
+        아래 코드는 뷰 이름을 hello(ex. hello.jsp)로 지정하였는데 DispatcherServlet은 이 뷰 이름과 매칭되는
+         뷰 구현체를 찾기 위해 ViewResolver를 사용한다.
+         */
         mav.setViewName("hello");
         mav.addObject("greeting", getGreeting());
         return mav;

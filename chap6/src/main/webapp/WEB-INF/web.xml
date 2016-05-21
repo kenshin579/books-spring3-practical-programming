@@ -4,6 +4,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          id="WebApp_ID" version="2.5">
 
+    <!-- 여러 servlet 간에 공통으로 사용할 설정 파일임 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
@@ -11,6 +12,8 @@
         </param-value>
     </context-param>
 
+    <!-- 아래 ContextLoaderListener를 ServletListener로 등록하고 contextConfigLocation 컨텍스트 파라미터를 이용하여
+    공통으로 사용될 빈 정보를 담고 있는 설정 파일 목록을 지정한다 -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
@@ -18,6 +21,14 @@
     <servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!-- 하나 이상의 설정 파일(ex.xml)를 사용하려면 아래처럼 설정 필요함 -->
+        <!--<init-param>-->
+        <!--<param-name>contextConfigLocation</param-name>-->
+        <!--<param-value>-->
+        <!--/WEB-INF/main.xml-->
+        <!--/WEB-INF/bbs.xml-->
+        <!--</param-value>-->
+        <!--</init-param>-->
         <load-on-startup>1</load-on-startup>
     </servlet>
 
@@ -26,6 +37,8 @@
         <url-pattern>*.do</url-pattern>
         <url-pattern>/game/*</url-pattern>
     </servlet-mapping>
+
+    <!-- DispatcherServlet은 WEB-INF 폴더에 위치한 [서블릿]-servlet.xml 파일을 스프링 설정 파일(ex. dispatcher-servlet.xml)로 사용함 -->
 
     <!--	<servlet>-->
     <!--		<servlet-name>dispatcherScan</servlet-name>-->

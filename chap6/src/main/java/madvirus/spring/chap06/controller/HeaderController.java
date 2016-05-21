@@ -9,7 +9,7 @@ public class HeaderController {
 
     @RequestMapping("/header/check.do")
     public String check(@RequestHeader("Accept-Language") String languageHeader) {
-        System.out.println(languageHeader);
+        System.out.println("HTTP 요청 헤더의 값: " + languageHeader);
         return "header/pass";
     }
 }

@@ -19,7 +19,7 @@ public class CookieController {
     @RequestMapping("/cookie/view.do")
     public String view(
             @CookieValue(value = "auth", defaultValue = "0") String auth) {
-        System.out.println("auth ��Ű: " + auth);
+        System.out.println("auth 확인: " + auth);
         return "cookie/view";
     }
 }
