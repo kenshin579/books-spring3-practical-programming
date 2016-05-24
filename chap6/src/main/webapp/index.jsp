@@ -25,7 +25,13 @@
         (HeaderController, @RequestHeader 예제)
     </li>
     <li><a href="<c:url value='/search/main.do' />">/search/main.do</a>
-        (GameSearchController, @ModelAttribute 예제)
+        (GameSearchController, @ModelAttribute 예제, ModelAndView)
+    </li>
+    <li><a href="<c:url value='/search/mainModel.do' />">/search/mainModel.do</a>
+        (GameSearchController, @ModelAttribute 예제, Model)
+    </li>
+    <li><a href="<c:url value='/search/mainModelMap.do' />">/search/mainModelMap.do</a>
+        (GameSearchController, @ModelAttribute 예제, ModelMap)
     </li>
     <li><a href="<c:url value='/account/create.do' />">/account/create.do</a>
         (CreateAccountController, @ModelAttribute 및 폼 값 검증 예제)
