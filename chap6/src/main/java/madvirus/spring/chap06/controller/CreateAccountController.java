@@ -22,14 +22,13 @@ public class CreateAccountController {
     /*
 
     todo: formBacking은 언제 누구의 의해서 호출되나?
-    -
-
-    - @ModelAttribute 어노테이션이 적용된 메서드가 @RequestMapping 어노테이션이 적용된 메서드 보다 먼저 호출된다
+    - URI 요청이 들어오면 @ModelAttribute 어노테이션이 적용된 메서드가 @RequestMapping 어노테이션이 적용된 메서드 보다 먼저 호출된다
 
     */
     @ModelAttribute("command") //submit 메서드의 파라미터에서 사용된 @ModelAttribute 어노테이션의 값이 command로 동일함
     public MemberInfo formBacking(HttpServletRequest request) {
         if (request.getMethod().equalsIgnoreCase("GET")) {
+            System.out.println("GET:formBacking");
             MemberInfo mi = new MemberInfo();
             Address address = new Address();
             address.setZipcode(autoDetectZipcode(request.getRemoteAddr()));
@@ -56,9 +55,10 @@ public class CreateAccountController {
     @RequestMapping(method = RequestMethod.POST)
     public String submit(@ModelAttribute("command") MemberInfo memberInfo,
                          BindingResult result) {
+        System.out.println("POST:submit");
         new MemberInfoValidator().validate(memberInfo, result);
-        if (result.hasErrors()) {
-            return "account/creationForm";
+        if (result.hasErrors()) { //검증 결과 에러가 존재한다면
+            return "account/creationForm"; //뷰로 폼을 다시 보여줌
         }
         return "account/created";
     }

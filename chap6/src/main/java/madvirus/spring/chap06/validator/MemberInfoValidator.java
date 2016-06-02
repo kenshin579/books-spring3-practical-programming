@@ -16,7 +16,7 @@ public class MemberInfoValidator implements Validator {
     public void validate(Object target, Errors errors) {
         MemberInfo memberInfo = (MemberInfo) target;
         if (memberInfo.getId() == null || memberInfo.getId().trim().isEmpty()) {
-            errors.rejectValue("id", "required");
+            errors.rejectValue("id", "required"); //rejectValue() 메서드는 실제로 오류 정보를 List<ObjectError>에 담는다
         }
         if (memberInfo.getName() == null
                 || memberInfo.getName().trim().isEmpty()) {
@@ -27,7 +27,7 @@ public class MemberInfoValidator implements Validator {
             errors.rejectValue("address", "required");
         }
         if (address != null) {
-            errors.pushNestedPath("address");
+            errors.pushNestedPath("address"); //todo: 알뜻 모를뜻
             try {
                 if (address.getZipcode() == null
                         || address.getZipcode().trim().isEmpty()) {

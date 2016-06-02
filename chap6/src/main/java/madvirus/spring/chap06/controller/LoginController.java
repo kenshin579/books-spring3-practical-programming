@@ -44,8 +44,7 @@ public class LoginController {
             authenticator.authenticate(loginCommand);
             return "redirect:/index.jsp";
         } catch (AuthenticationException e) {
-            result.reject("invalidIdOrPassword", new Object[]{loginCommand
-                    .getUserId()}, null);
+            result.reject("invalidIdOrPassword", new Object[]{loginCommand.getUserId()}, null);
             return formViewName;
         }
     }

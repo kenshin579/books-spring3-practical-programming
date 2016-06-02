@@ -2,7 +2,12 @@ package madvirus.spring.chap06.filter;
 
 import madvirus.spring.chap06.common.CommonLogger;
 
-import javax.servlet.*;
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import java.io.IOException;
 
 public class ProfileFilter implements Filter {
@@ -20,7 +25,7 @@ public class ProfileFilter implements Filter {
             filterChain.doFilter(request, response);
         } finally {
             long finish = System.currentTimeMillis();
-            commonLogger.log("doFilter : " + (finish - start));
+            commonLogger.log("doFilter : execution time " + (finish - start) + " ms");
         }
     }
 
