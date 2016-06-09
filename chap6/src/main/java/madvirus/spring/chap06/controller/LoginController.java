@@ -21,6 +21,9 @@ public class LoginController {
 
     private String formViewName = "login/form";
 
+    /*
+    XML 설정해서 아래 변수에 MockAuthenticator 구현체를 setter로 세팅해준다
+     */
     @Autowired
     private Authenticator authenticator;
 
@@ -34,6 +37,11 @@ public class LoginController {
         return new LoginCommand();
     }
 
+    /*
+     @Valid 어노테이션과 스프링 프레임워크의 @InitBinder 어노테이을 이용해서 Validator에 대한
+     직접적인 호출없이 스프링 프레임워크가 유효성 검사 코드를 실행함
+     - Validtors.validate() 메서드를 명시적으로 호출하지 않고 스프링에서 자동으로 호출해줌
+     */
     @RequestMapping(method = RequestMethod.POST)
     public String submit(@Valid LoginCommand loginCommand,
                          BindingResult result) {

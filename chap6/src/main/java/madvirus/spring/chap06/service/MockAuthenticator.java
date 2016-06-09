@@ -10,7 +10,7 @@ public class MockAuthenticator implements Authenticator {
     public void authenticate(LoginCommand loginCommand)
             throws AuthenticationException {
         if (!loginCommand.getUserId().equals(loginCommand.getPassword())) {
-            commonLogger.log("���� ���� - " + loginCommand.getUserId());
+            commonLogger.log("id/passwd 일치하지 않음 - " + loginCommand.getUserId());
             throw new AuthenticationException();
         }
     }
