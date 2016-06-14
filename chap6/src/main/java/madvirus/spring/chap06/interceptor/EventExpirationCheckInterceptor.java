@@ -8,6 +8,11 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 
+/*
+컨트롤러가 요청을 처리하기 전과 처리한 후에 알맞은 기능을 수행할때
+- 조건에 따라 컨트롤러에 요청을 전달하지 않거나
+- 요청을 처리한후 ModelAndView 객체를 조작하고 싶은 경우
+ */
 public class EventExpirationCheckInterceptor extends HandlerInterceptorAdapter {
 
     @Override

@@ -9,6 +9,11 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/*
+WebBindingInitializer를 전체 컨트롤러에 공통으로 적용되는 PropertyEditor를 등록하는데 사용된다
+- XML 설정파일에 AnnotationMethodHandlerAdapter의 webBindingInitializer 프로퍼티 값으로
+   구현 클래스의 빈을 전달해주면 된다
+ */
 public class CustomWebBindingInitializer implements WebBindingInitializer {
 
     @Override
