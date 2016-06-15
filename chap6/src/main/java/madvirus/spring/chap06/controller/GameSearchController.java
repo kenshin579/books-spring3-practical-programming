@@ -98,6 +98,10 @@ public class GameSearchController {
         return null;
     }
 
+    /*
+    @RequestMapping 어노테이션이 적용된 메서드에서 @ExceptionHandler 어노테이션에서 지정한 타임의 예외가
+    발생하면 @ExceptionHandler 어노테이션이 적용된 메서드를 이용해서 예외를 보여줄 뷰를 지정하게 된다
+     */
     @ExceptionHandler(NullPointerException.class)
     public String handleNullPointerException(NullPointerException ex) {
         return "error/nullException";

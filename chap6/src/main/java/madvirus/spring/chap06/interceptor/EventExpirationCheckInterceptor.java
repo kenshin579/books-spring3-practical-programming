@@ -1,5 +1,6 @@
 package madvirus.spring.chap06.interceptor;
 
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,11 +19,22 @@ public class EventExpirationCheckInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {
+        System.out.println("preHandle:" + request.getRequestURI());
         if (checkEvent(request) && checkEventExpiration()) {
             displayEventExpirationPage(request, response);
             return false;
         }
         return true;
+    }
+
+    @Override
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+        System.out.println("postHandle: " + request.getRequestURI());
+    }
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        System.out.println("afterCompletion:" + request.getRequestURI());
     }
 
     private boolean checkEvent(HttpServletRequest request) {
